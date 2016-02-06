@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  # resources :polls, except: [:new, :edit]
+  # resources :drops, except: [:new, :edit]
+  resources :products, except: [:new, :edit] do
+    resources :drops, on: :member
+    resources :polls, on: :member
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
