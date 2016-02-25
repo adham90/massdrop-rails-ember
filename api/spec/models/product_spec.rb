@@ -9,6 +9,6 @@ RSpec.describe Product, type: :model do
   context "#relations" do
     it { is_expected.to have_many :drops }
     it { is_expected.to have_many :polls }
-    it { is_expected.to have_many :product_images }
+    it { is_expected.to have_many :pictures }
   end
 end

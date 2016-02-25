@@ -2,13 +2,18 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.5.1'
 gem 'rails-api'
-gem 'spring', :group => :development
 gem 'pg'
 gem "active_model_serializers", github: "rails-api/active_model_serializers"
 gem 'rack-cors', :require => 'rack/cors'
-# gem 'active-model-adapter-source'
+gem 'aws-sdk'
+gem 'sidekiq'
 gem "refile", require: "refile/rails"
+gem "refile-s3"
 gem "refile-mini_magick"
+
+gem 'devise'
+gem 'devise_token_auth'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'rspec'
@@ -16,9 +21,10 @@ group :development, :test do
 end
 
 group :development do
-  gem 'guard-rspec', require: false
   gem 'guard'
+  gem 'guard-rspec', require: false
   gem 'guard-bundler', require: false
+  gem 'spring'
 end
 
 group :test do

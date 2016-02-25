@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
-  # resources :polls, except: [:new, :edit]
-  # resources :drops, except: [:new, :edit]
-  resources :products, except: [:new, :edit] do
-    resources :drops, on: :member
-    resources :polls, on: :member
+  resources :communities, except: [:new, :edit]
+  namespace :api do
+    mount_devise_token_auth_for 'User', at: 'auth'
+
+    get '/sign' => 'pictures#sign'
+
+    resources :pictures do
+      member do
+        post 'upload'
+      end
+    end
+
+    resources :products, except: [:new, :edit] do
+      resources :drops, on: :member
+      resources :polls, on: :member
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
