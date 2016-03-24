@@ -1,12 +1,12 @@
 {
   "product": {
-    "name": "product name",
-    "msrp": 100,
-    "pictures": {
-      "image": {
-        "filename": "test.png",
-        "content_type": "image/png"
+    "name":"test1",
+    "description":"test description",
+    "msrp":1,
+    "pictures":[
+      {"picture":{
+        "image":"@bin/test.jpg;type=image/jpeg"
       }
-    }
+    }]
   }
 }

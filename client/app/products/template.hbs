@@ -1,0 +1,8 @@
+<h3>products</h3>
+{{#each model as |product|}}
+name: {{#link-to 'products.show' product}}{{product.name}}{{/link-to}}
+{{else}}
+  <h3>no products found</h3>
+{{/each}}
+
+{{outlet}}

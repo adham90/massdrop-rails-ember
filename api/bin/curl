@@ -1,8 +1,0 @@
-create_product() {
-  curl -v -X POST \
-     -H "Content-Type: application/json" \
-     -d @bin/product.json \
-     http://localhost:3000/products
-}
-
-$1

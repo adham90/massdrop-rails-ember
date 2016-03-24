@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class Api::ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
 
   # GET /products
@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      render json: @product, status: :created, location: @product
+      # render json: @product, status: :created, location: @product
     else
       render json: @product.errors, status: :unprocessable_entity
     end
@@ -54,6 +54,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name, :msrp, :description, pictures: [:image => []])
+      params.require(:product).permit(:name, :msrp, :description, pictures_attributes: [:image])
     end
 end

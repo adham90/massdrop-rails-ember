@@ -1,0 +1,10 @@
+create() {
+  curl -v -X POST \
+     -H 'Accept: application/json' \
+     -H "Content-Type: application/json" \
+     -d @bin/product.json \
+     http://localhost:3000/api/products \
+     --trace-ascii /dev/stdout
+}
+
+$1

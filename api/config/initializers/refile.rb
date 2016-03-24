@@ -1,12 +1,11 @@
+# config/initializers/refile.rb
 require "refile/s3"
 
-secrets = Rails.application.secrets
-
 aws = {
-  access_key_id: secrets.s3_access_key_id,
-  secret_access_key: secrets.s3_secret,
-  region: secrets.s3_region,
-  bucket: secrets.s3_bucket
+  access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+  secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+  region: "us-west-2",
+  bucket: ENV['S3_BUCKET_NAME'],
 }
 
 Refile.cache = Refile::S3.new(prefix: "cache", **aws)

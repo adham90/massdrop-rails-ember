@@ -1,4 +1,4 @@
-class DropsController < ApplicationController
+class Api::DropsController < ApplicationController
   before_action :set_drop, only: [:show, :update, :destroy]
 
   # GET /drops

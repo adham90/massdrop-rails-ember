@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225093927) do
+ActiveRecord::Schema.define(version: 20160225103542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "communities", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "icon"
+    t.string   "cover_image"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "drops", force: :cascade do |t|
     t.datetime "end_at"
@@ -27,11 +36,11 @@ ActiveRecord::Schema.define(version: 20160225093927) do
   add_index "drops", ["product_id"], name: "index_drops_on_product_id", using: :btree
 
   create_table "pictures", force: :cascade do |t|
+    t.string   "image_id"
     t.integer  "imageable_id"
     t.string   "imageable_type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.string   "image_id"
   end
 
   create_table "polls", force: :cascade do |t|

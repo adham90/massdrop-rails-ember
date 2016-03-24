@@ -5,11 +5,13 @@ gem 'rails-api'
 gem 'pg'
 gem "active_model_serializers", github: "rails-api/active_model_serializers"
 gem 'rack-cors', :require => 'rack/cors'
-gem 'aws-sdk'
 gem 'sidekiq'
+
 gem "refile", require: "refile/rails"
 gem "refile-s3"
 gem "refile-mini_magick"
+
+gem "figaro"
 
 gem 'devise'
 gem 'devise_token_auth'
